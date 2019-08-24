@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Offers Browse </title>
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+		<link rel="stylesheet" type="text/css" href="/stylesheets/app.css">
+	</head>
+	<body>
+		
+		
+		
+		<div class="ui fixed inverted menu">
+			<div class="ui container">
+				<div class="header item"><i class="code icon"></i>Offer Page</div>
+				<a class="item" href="/upload">Upload an Offer</a>
+				<a class="item" href="/home">Browse</a>
+			</div>
+		</div>
+		
+		<div class="ui main text container">
+			<div class="ui huge header">Offers</div>
+			<form class="ui form" method="POST" action="/search">
+				<div class="field">
+					<label>Search</label>
+					<input type="text" name="search" placeholder="Enter Offer Name">
+				</div>
+				
+				<button class="ui floated blue button">Search</button>
+			</form>
+			<div class="ui top attached segment">
+				<div class="ui divided items">
+					<% offer.forEach(function(offers){ %>
+					<div class="item">
+						<div class="image">
+							<img src="<%= offers.image %>">
+						</div>
+						<div class="content">
+							<p class="header"><%= offers.productName %> - <%= offers.offerName %></p>
+							
+							<div class="description">
+								<p>Price - <strong><%= offers.productPrice %></strong></p>
+								<h2>Discount - <strong><%= offers.discount %></strong></h2>
+								<p>Offer Start - <strong><%= offers.startDate.toDateString() %></strong></p>
+								<p>Offer End - <strong><%= offers.endDate.toDateString() %></strong></p>
+								
+							</div>
+							<div class="extra">
+								<form id="delete" method="POST" action="/offer/<%= offers._id %>?_method=DELETE">
+									<button class="ui red button">Delete   <i class="archive icon"></i></button>
+								</form>
+							</div>
+						</div>
+					</div>
+					<% }); %>
+				</div>
+			</div>
+		</div>
+		
+		
+	</body>
+</html>

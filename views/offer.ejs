@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Upload Offer</title>
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+		<link rel="stylesheet" type="text/css" href="/stylesheets/app.css">
+	</head>
+	<body>
+		<div class="ui fixed inverted menu">
+			<div class="ui container">
+				<div class="header item"><i class="code icon"></i>Offer Page</div>
+				<a class="item" href="/upload">Upload an Offer</a>
+				<a class="item" href="/home">Browse</a>
+			</div>
+		</div>
+		<div class="ui main text container">
+			<div class="ui huge header">New Offer</div>
+			<div class="ui inverted segment">
+			<form class="ui inverted form" method="POST" action="/upload">
+				<label>Product Name</label>
+				<input type="text" name="offer[productName]">
+				<label>Product Price</label>
+				<input type="text" name="offer[productPrice]">
+				<label>Image url</label>
+				<input type="text" name="offer[image]">
+				<label>Offer Name</label>
+				<input type="text" name="offer[offerName]">
+				<label>Discount</label>
+				<input type="text" name="offer[discount]">
+				<label>End Date</label>
+				<input type="date" name="offer[endDate]"><br><br>
+				<button class="right ui blue button">Upload</button>
+			</form>
+		</div>
+		</div>
+	</body>
+</html>
